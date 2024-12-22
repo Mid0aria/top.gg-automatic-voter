@@ -1,0 +1,33 @@
+{
+    "name": "top.gg-automatic-voter",
+    "version": "0.0.1",
+    "version_note": "added auto voter ^^",
+    "description": "with this script you can automatically vote for discord bots in top.gg",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mid0aria/top.gg-automatic-voter.git"
+    },
+    "keywords": [
+        "top.gg",
+        "discord",
+        "bots",
+        "javascript",
+        "puppeteer"
+    ],
+    "author": "Mid0aria",
+    "license": "ISC",
+    "scripts": {
+        "start": "node index.js",
+        "run": "node index.js",
+        "setup": "npm i"
+    },
+    "dependencies": {
+        "puppeteer": "^23.10.1",
+        "puppeteer-real-browser": "^1.3.20"
+    },
+    "bugs": {
+        "url": "https://github.com/Mid0aria/top.gg-automatic-voter/issues"
+    },
+    "homepage": "https://github.com/Mid0aria/top.gg-automatic-voter#readme"
+}
