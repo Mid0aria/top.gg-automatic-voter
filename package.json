@@ -1,7 +1,7 @@
 {
     "name": "top.gg-automatic-voter",
-    "version": "0.0.1",
-    "version_note": "added auto voter ^^",
+    "version": "0.0.2",
+    "version_note": "fixed oauth2 authorization",
     "description": "with this script you can automatically vote for discord bots in top.gg",
     "main": "index.js",
     "repository": {
