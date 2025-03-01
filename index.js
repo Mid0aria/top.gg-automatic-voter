@@ -61,7 +61,7 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     await page.waitForSelector(".chakra-button.css-7rul47", { visible: true });
     await page.locator(".chakra-button.css-7rul47").setTimeout(3000).click();
 
-    //discord auth
+    // Discord auth
     await page.waitForNavigation({ waitUntil: "load" });
     await page.waitForSelector("div.action__3d3b0 button", { visible: true });
     await page.locator("div.action__3d3b0 button").setTimeout(3000).click();
@@ -78,14 +78,21 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
         await page.goto(topgglink, { waitUntil: "load" });
 
         while (true) {
-            const isvoteable = await page.evaluate(() => {
-                if (document.body.innerText.includes("You can vote now!")) {
-                    return true;
-                } else {
-                    return false;
-                }
+            const isAlreadyVoted = await page.evaluate(() => {
+                return document.body.innerText.includes(
+                    "You have already voted",
+                );
             });
 
+            const isvoteable = await page.evaluate(() => {
+                return document.body.innerText.includes("You can vote now!");
+            });
+
+            if (isAlreadyVoted) {
+                console.log("You have already voted. Exiting...");
+                await browser.close();
+                process.exit(0);
+            }
             if (isvoteable) {
                 break;
             } else {
@@ -104,6 +111,7 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
             button.click();
         });
+
         await delay(5000);
     } else {
         console.log("Authorization failed.");
