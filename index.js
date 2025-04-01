@@ -47,6 +47,13 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     const { browser, page } = await connect({
         headless: false,
         turnstile: true,
+        plugins: [
+            require("puppeteer-extra-plugin-adblocker")({
+                blockTrackers: true,
+                useCache: true,
+                cacheDir: path.resolve(__dirname, "./adblockcache"),
+            }),
+        ],
     });
     await page.setViewport({
         width: 1920,

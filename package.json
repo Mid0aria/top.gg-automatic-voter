@@ -1,7 +1,7 @@
 {
     "name": "top.gg-automatic-voter",
-    "version": "0.0.2",
-    "version_note": "fixed oauth2 authorization",
+    "version": "0.0.3",
+    "version_note": "added adblocker for low end systems",
     "description": "with this script you can automatically vote for discord bots in top.gg",
     "main": "index.js",
     "repository": {
@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "puppeteer": "^23.10.1",
+        "puppeteer-extra-plugin-adblocker": "^2.13.6",
         "puppeteer-real-browser": "^1.3.20"
     },
     "bugs": {
