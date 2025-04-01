@@ -11,6 +11,7 @@
 
 const packageJson = require("./package.json");
 const cp = require("child_process");
+const path = require("path");
 
 for (let dep of Object.keys(packageJson.dependencies)) {
     try {
