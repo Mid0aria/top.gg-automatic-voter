@@ -12,6 +12,7 @@
 const packageJson = require("./package.json");
 const cp = require("child_process");
 const path = require("path");
+const fse = require("fs-extra");
 
 for (let dep of Object.keys(packageJson.dependencies)) {
     try {
@@ -41,6 +42,12 @@ const argv = yargs.options({
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+const adblockcachedir = path.resolve(__dirname, "./adblockcache");
+
+if (!fse.existsSync(adblockcachedir)) {
+    fse.mkdirSync(adblockcachedir, { recursive: true });
+}
+
 (async () => {
     const topcici = "https://top.gg";
     const { token, botid } = argv;
@@ -52,7 +59,7 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             require("puppeteer-extra-plugin-adblocker")({
                 blockTrackers: true,
                 useCache: true,
-                cacheDir: path.resolve(__dirname, "./adblockcache"),
+                cacheDir: adblockcachedir,
             }),
         ],
     });
