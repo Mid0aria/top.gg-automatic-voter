@@ -1,5 +1,5 @@
 /*
- * OwO Farm Bot Stable / https://github.com/Mid0aria/owofarmbot_stable/blob/main/utils/autovote.js
+ * OwO Farm Bot Stable / https://github.com/Mid0Hub/owofarmbot_stable/blob/main/utils/autovote.js
  * Copyright (C) 2024 Mido
  * This software is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
  * For more information, see README.md and LICENSE
